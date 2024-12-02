@@ -23,8 +23,9 @@ datasource db {
 
  model gyerek{
   id Int @id @default(autoincrement())
+  nev String
   cim String
   joe Boolean
-  jatek jatek[] @relation("gyerekjatek")
+  jatekok jatek[] @relation("gyerekjatek")
 }
   
