@@ -6,9 +6,11 @@ import { UpdateGyerekDto } from './dto/update-gyerek.dto';
 
 @Injectable()
 export class GyerekService {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+ 
   remove(id: number) {
-    throw new Error('Method not implemented.');
+    return this.prisma.gyerek.delete({ 
+      where:{id: id},
+    })
   }
   assignJatek(gyerekId: number, jatekId: number) {
     throw new Error('Method not implemented.');
@@ -26,7 +28,7 @@ export class GyerekService {
 
   async findOne(id: number) {
     const gyerek = await this.prisma.gyerek.findUnique({
-      where: { id:id },
+      where: { id },
       include: { jatekok: true },
     });
     if (!gyerek) {

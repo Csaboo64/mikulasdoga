@@ -11,10 +11,10 @@ export class JatekController {
   findAll() {
     return this.jatekService.findAll();
   }
-
+wd
   @Get(':id')
-  findOne(@Param('id') id: number) {
-    return this.jatekService.findOne(id);
+  findOne(@Param('id') id:string) {
+    return this.jatekService.findOne(+id);
   }
 
   @Post()

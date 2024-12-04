@@ -13,8 +13,8 @@ export class GyerekController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: number) {
-    return this.gyerekService.findOne(id);
+  findOne(@Param('id') id: string) {
+    return this.gyerekService.findOne(+id);
   }
 
   @Post()
@@ -29,7 +29,7 @@ export class GyerekController {
 
   @Delete(':id')
   remove(@Param('id') id: number) {
-    return this.gyerekService.remove(id);
+    return this.gyerekService.remove(+id);
   }
 
   @Post(':id/jatekok')
